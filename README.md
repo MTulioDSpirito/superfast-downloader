@@ -7,7 +7,7 @@ Feito em **Python puro (stdlib)**: zero dependências, roda em macOS e Windows, 
 ![screenshot](screenshot.png)
 
 ## Por que
-SuperFast DM é um gerenciador de downloads **standalone**. Compete com os managers mainstream (Internet Download Manager, JDownloader, Free Download Manager, entre outros) — mas é minimalista, sem dependências e fácil de estender/automatizar.
+SuperFast DM é um gerenciador de downloads **standalone**: rápido, minimalista, sem dependências e fácil de inspecionar, estender e automatizar.
 
 ## Recursos
 - **Multi-conexão HTTP/HTTPS**: divide o arquivo em segmentos (até 32) e baixa em paralelo via `Range`.
