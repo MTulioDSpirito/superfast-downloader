@@ -6,7 +6,15 @@ Este diretório contém os insumos para gerar o instalador do Windows.
 1. Instale o **Inno Setup 6** — https://jrsoftware.org/isinfo.php
 2. Abra `superfastdm.iss` no Inno Setup.
 3. **File → Compile** (ou Ctrl+F9).
-4. O instalador sai em `output\SuperFastDM-Setup.exe`.
+4. O instalador sai em `output\SuperFastDM-Setup-<versão>.exe` (ex.: `SuperFastDM-Setup-1.1.exe`).
+
+Ou, sem abrir o Inno Setup, rode o script de build (o mesmo usado no CI):
+```
+powershell -ExecutionPolicy Bypass -File build_windows.ps1
+```
+Ele localiza o Inno Setup (instalado → chocolatey → download portable) e compila sozinho.
+
+> No GitHub Actions, o workflow `.github/workflows/build-installers.yml` roda exatamente este script: push de tag `v*` publica o Release, e o disparo manual gera artefatos.
 
 O `.ico` já está incluído (`superfastdm.ico`). Para regenerá-lo:
 ```

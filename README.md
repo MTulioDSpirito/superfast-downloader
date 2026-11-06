@@ -45,6 +45,13 @@ Abra o app gerado — ele inicia o servidor e abre o navegador.
 
 Ou modo **portável** (sem instalador): dê dois cliques em `installer/windows/SuperFastDM.bat` (ou rode `python app\server.py`).
 
+### Builds automáticos (CI + GitHub Releases)
+O workflow `.github/workflows/build-installers.yml` compila os dois instaladores numa job:
+- **push de tag `v*`** → monta o `.exe` (Inno Setup) e o `.dmg` e publica um **Release** com os binários + `.sha256`.
+- **disparo manual** (Actions → `build-installers` → *Run workflow*) → gera os binários e os sobe como **artefatos** do run (baixe lá; sem tag não cria release).
+
+O Windows é compilado pelo `installer/windows/build_windows.ps1` — o **mesmo script** usado localmente (nada duplicado).
+
 ### A partir do código (qualquer sistema)
 ```
 python app/server.py
