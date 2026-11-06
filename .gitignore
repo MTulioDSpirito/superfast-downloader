@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Builds de instalador (gerados, não commitar)
+installer/mac/build/
+installer/windows/output/
+
+# ícones temporários
+_iconset/
+
+# dados locais do app
+.superfast-dm/
+
+# sistema
+.DS_Store
+Thumbs.db

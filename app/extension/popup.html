@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body{width:240px;font:13px -apple-system,"Segoe UI",Roboto,sans-serif;
+       margin:0;padding:12px;background:#161a22;color:#e6ebf2}
+  h3{margin:0 0 8px;font-size:14px}
+  .row{display:flex;justify-content:space-between;align-items:center;margin:8px 0}
+  .st{font-weight:700}
+  .ok{color:#39c46f}.bad{color:#d8564a}
+  label{user-select:none;cursor:pointer}
+  button{margin-top:10px;width:100%;padding:8px;border:none;border-radius:6px;
+         background:#2f9e5f;color:#fff;font-weight:600;cursor:pointer}
+  .hint{font-size:11px;color:#9aa7b8;margin-top:8px}
+</style>
+</head>
+<body>
+  <h3>SuperFast DM</h3>
+  <div class="row"><span>Servidor local</span><span id="st" class="st">…</span></div>
+  <div class="row"><label><input type="checkbox" id="auto"> Captura automática</label></div>
+  <button id="test">Testar conexão</button>
+  <div class="hint" id="msg">Envia links para 127.0.0.1:7860</div>
+<script>
+  const api = (browser.storage.local) || (chrome.storage.local);
+  const st = document.getElementById('st');
+  const auto = document.getElementById('auto');
+  const msg = document.getElementById('msg');
+
+  async function check(){
+    try{
+      const r = await fetch('http://127.0.0.1:7860/health');
+      const j = await r.json();
+      if(j.ok){ st.textContent='ONLINE'; st.className='st ok'; }
+      else throw 0;
+    }catch(_){ st.textContent='OFFLINE'; st.className='st bad'; }
+  }
+  api.get('auto').then(v => auto.checked = !!v.auto);
+  auto.onchange = () => api.set({auto: auto.checked});
+  document.getElementById('test').onclick = check;
+  check();
+</script>
+</body>
+</html>

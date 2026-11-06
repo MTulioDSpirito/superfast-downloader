@@ -1,0 +1,13 @@
+#sfd-fab {
+  position: absolute;
+  z-index: 2147483647;
+  background: #2f9e5f;
+  color: #fff;
+  font: 600 10px/16px -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,.4);
+  letter-spacing: .3px;
+}
+#sfd-fab:hover { background: #39c46f; }

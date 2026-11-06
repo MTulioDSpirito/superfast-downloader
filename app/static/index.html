@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SuperFast DM</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">&#9660;</span>
+      <h1>SuperFast <em>DM</em></h1>
+    </div>
+    <div class="stats">
+      <div class="stat"><label>Velocidade</label><span id="agg-speed">0 B/s</span></div>
+      <div class="stat"><label>Ativos</label><span id="agg-active">0</span></div>
+      <div class="stat"><label>Fila</label><span id="agg-queue">0</span></div>
+    </div>
+  </header>
+
+  <section class="add">
+    <input type="text" id="url" placeholder="Cole a URL de download (http/https)">
+    <input type="text" id="fname" placeholder="Nome do arquivo (opcional)" style="max-width:220px">
+    <select id="conns" title="Conexões simultâneas">
+      <option value="1">1 conexão</option>
+      <option value="4">4 conexões</option>
+      <option value="8" selected>8 conexões</option>
+      <option value="16">16 conexões</option>
+      <option value="32">32 conexões</option>
+    </select>
+    <button id="btn-add" class="primary">&#9660; Baixar</button>
+  </section>
+
+  <section class="list-head">
+    <span class="c-name">Arquivo</span>
+    <span class="c-prog">Progresso</span>
+    <span class="c-size">Tamanho</span>
+    <span class="c-speed">Velocidade</span>
+    <span class="c-eta">ETA</span>
+    <span class="c-act">Ações</span>
+  </section>
+
+  <section id="list" class="list"></section>
+
+  <footer class="foot">
+    <span id="dest">destino: —</span>
+    <span class="hint">Multi-conexão HTTP/HTTPS &middot; pausa/retomada &middot; fila</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

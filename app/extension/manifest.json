@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "SuperFast DM Integration",
+  "version": "1.0.0",
+  "description": "Envia links de download para o SuperFast DM local (127.0.0.1:7860). Botao 'SFD' em links + captura opcional.",
+  "permissions": ["downloads", "storage", "notifications"],
+  "host_permissions": ["http://127.0.0.1:7860/*", "http://localhost:7860/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "SuperFast DM (clique p/ ligar/desligar captura)",
+    "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": { "id": "superfast-dm@example.org", "strict_min_version": "121.0" }
+  }
+}
